@@ -2,11 +2,15 @@
 
 namespace RomanNumeralsKata
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+        }
+
+        public string Convert(int amount)
+        {
+            return amount.ToString();
         }
     }
 }
