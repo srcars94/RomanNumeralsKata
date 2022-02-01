@@ -5,14 +5,26 @@ namespace RomanNumeralsTes
 {
     public class Tests
     {
-        [Test]
-        public void Does_Return_String([Values(1)] int amount)
+        private readonly Program p;
+        public Tests()
         {
-            var p = new Program();
+            p = new Program();
+        }
 
+        [Test]
+        public void Does_Return_String([Values(2)] int amount)
+        {
             var result = p.Convert(amount);
 
-            Assert.AreEqual("1", result);
+            Assert.AreEqual("2", result);
+        }
+
+        [Test]
+        public void One_Roman_Numerals([Values(1)] int amount)
+        {
+            var result = p.Convert(amount);
+
+            Assert.AreEqual("I", result);
         }
     }
 }
