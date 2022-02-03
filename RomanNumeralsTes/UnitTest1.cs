@@ -26,5 +26,13 @@ namespace RomanNumeralsTes
 
             Assert.AreEqual("II", result);
         }
+
+        [Test]
+        public void Four_Roman_Numerals([Values(4)] int amount)
+        {
+            var result = p.Convert(amount);
+
+            Assert.AreEqual("IV", result);
+        }
     }
 }

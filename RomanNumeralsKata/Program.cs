@@ -12,8 +12,8 @@ namespace RomanNumeralsKata
         public Program()
         {
             romanNumeralsBank.Add(1, "I");
+            romanNumeralsBank.Add(4, "IV");
             romanNumeralsBank.Add(5, "V");
-            romanNumeralsBank.Add(10, "X");
         }
 
         static void Main(string[] args)
@@ -30,14 +30,24 @@ namespace RomanNumeralsKata
             {
                 var tempAmount = amount;
 
+                if (tempAmount <= 4)
+                {
+                    romanString += romanNumeralsBank.Where(w => w.Key == 4).FirstOrDefault().Value;
+
+                    tempAmount -= 4;
+
+                    if (tempAmount == 0) break;
+                }
+
                 if (tempAmount <= 3)
                 {
-                    var x = romanNumeralsBank.Where(w => w.Key == 1).FirstOrDefault().Value;
-
-                    romanString += x;
+                    romanString += romanNumeralsBank.Where(w => w.Key == 1).FirstOrDefault().Value;
 
                     tempAmount -= 1;
+
+                    if (tempAmount == 0) break;
                 }
+
 
                 i++;
             }
