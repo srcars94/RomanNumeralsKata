@@ -14,6 +14,7 @@ namespace RomanNumeralsKata
             romanNumeralsBank.Add(1, "I");
             romanNumeralsBank.Add(4, "IV");
             romanNumeralsBank.Add(5, "V");
+            romanNumeralsBank.Add(9, "IX");
             romanNumeralsBank.Add(10, "X");
         }
 
@@ -34,6 +35,13 @@ namespace RomanNumeralsKata
                     romanString += romanNumeralsBank.Where(w => w.Key == 10).FirstOrDefault().Value;
 
                     tempAmount -= 10;
+                }
+
+                if (tempAmount >= 9)
+                {
+                    romanString += romanNumeralsBank.Where(w => w.Key == 9).FirstOrDefault().Value;
+
+                    tempAmount -= 9;
                 }
 
                 if (tempAmount >= 5)
