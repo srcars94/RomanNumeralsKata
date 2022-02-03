@@ -23,21 +23,17 @@ namespace RomanNumeralsKata
 
         public string Convert(int amount)
         {
-            var i = 0;
-
             var romanString = string.Empty;
 
             var tempAmount = amount;
 
-            while (i < amount)
+            for (var i = 0; i < amount; i++)
             {
                 if (tempAmount >= 10)
                 {
                     romanString += romanNumeralsBank.Where(w => w.Key == 10).FirstOrDefault().Value;
 
                     tempAmount -= 10;
-
-                    if (tempAmount == 0) break;
                 }
 
                 if (tempAmount >= 5)
@@ -45,8 +41,6 @@ namespace RomanNumeralsKata
                     romanString += romanNumeralsBank.Where(w => w.Key == 5).FirstOrDefault().Value;
 
                     tempAmount -= 5;
-
-                    if (tempAmount == 0) break;
                 }
 
                 if (tempAmount >= 4)
@@ -54,8 +48,6 @@ namespace RomanNumeralsKata
                     romanString += romanNumeralsBank.Where(w => w.Key == 4).FirstOrDefault().Value;
 
                     tempAmount -= 4;
-
-                    if (tempAmount == 0) break;
                 }
 
                 if (tempAmount >= 1)
@@ -63,14 +55,10 @@ namespace RomanNumeralsKata
                     romanString += romanNumeralsBank.Where(w => w.Key == 1).FirstOrDefault().Value;
 
                     tempAmount -= 1;
-
-                    if (tempAmount == 0) break;
                 }
 
-
-                i++;
+                if (tempAmount == 0) break;
             }
-
             return romanString;
         }
     }
