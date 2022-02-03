@@ -59,5 +59,13 @@ namespace RomanNumeralsTes
 
             Assert.AreEqual("XX", result);
         }
+
+        [Test]
+        public void Twenty_Two_Roman_Numerals([Values(22)] int amount)
+        {
+            var result = p.Convert(amount);
+
+            Assert.AreEqual("XXII", result);
+        }
     }
 }
