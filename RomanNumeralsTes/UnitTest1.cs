@@ -34,5 +34,14 @@ namespace RomanNumeralsTes
 
             Assert.AreEqual("IV", result);
         }
+
+
+        [Test]
+        public void Seven_Roman_Numerals([Values(7)] int amount)
+        {
+            var result = p.Convert(amount);
+
+            Assert.AreEqual("VII", result);
+        }
     }
 }
