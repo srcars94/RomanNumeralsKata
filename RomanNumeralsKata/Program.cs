@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace RomanNumeralsKata
 {
@@ -11,6 +12,8 @@ namespace RomanNumeralsKata
         public Program()
         {
             romanNumeralsBank.Add(1, "I");
+            romanNumeralsBank.Add(5, "V");
+            romanNumeralsBank.Add(10, "X");
         }
 
         static void Main(string[] args)
@@ -19,14 +22,21 @@ namespace RomanNumeralsKata
 
         public string Convert(int amount)
         {
-            foreach (var rn in romanNumeralsBank)
-            {
-                if (amount == rn.Key) return rn.Value;
+            var i = 0;
 
-                if (amount != rn.Key) continue;
+            var romanString = string.Empty;
+
+            while (i < amount)
+            {
+                if (i <= 3)
+                {
+                    var x = romanNumeralsBank.Where(w => w.Key == 1).FirstOrDefault().Value;
+
+                    romanString += x;
+                }
             }
 
-            return amount.ToString();
+            return romanString;
         }
     }
 }
