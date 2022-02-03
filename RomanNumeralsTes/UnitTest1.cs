@@ -18,5 +18,13 @@ namespace RomanNumeralsTes
 
             Assert.AreEqual("I", result);
         }
+
+        [Test]
+        public void Two_Roman_Numerals([Values(2)] int amount)
+        {
+            var result = p.Convert(amount);
+
+            Assert.AreEqual("II", result);
+        }
     }
 }

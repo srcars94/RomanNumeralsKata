@@ -28,12 +28,18 @@ namespace RomanNumeralsKata
 
             while (i < amount)
             {
-                if (i <= 3)
+                var tempAmount = amount;
+
+                if (tempAmount <= 3)
                 {
                     var x = romanNumeralsBank.Where(w => w.Key == 1).FirstOrDefault().Value;
 
                     romanString += x;
+
+                    tempAmount -= 1;
                 }
+
+                i++;
             }
 
             return romanString;
